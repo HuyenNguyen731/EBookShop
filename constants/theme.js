@@ -17,12 +17,12 @@ const FONT = {
 };
 
 const SIZES = {
-  xs: 10,
-  sm: 12,
+  xs: 12,
+  sm: 14,
   md: 16,
-  lg: 20,
-  xl: 24,
-  xxl: 32,
+  lg: 18,
+  xl: 20,
+  xxl: 24,
 };
 
 const SHADOWS = {

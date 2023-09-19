@@ -6,11 +6,11 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FFF",
     padding: 32,
-    height: "calc(100vh - 64px)",
+    height: "100%",
   },
   headText: {
     fontSize: "48px",
-    fontWeight: 600,
+    fontWeight: FONT.bold,
     color: COLORS.black,
     marginBottom: 6,
   },
@@ -39,6 +39,17 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: COLORS.white,
     fontSize: SIZES.xl,
+  },
+  footerText: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 32,
+    gap: 4,
+    justifyContent: "center",
+  },
+  linkText: {
+    color: COLORS.primary,
   },
 });
 

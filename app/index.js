@@ -1,5 +1,12 @@
 import { View, Text } from "react-native";
-import { Login } from "../components";
+import {
+  Login,
+  SignUp,
+  CardBook,
+  CardCategory,
+  CardOrder,
+  DetailsBook,
+} from "../components";
 
 const Home = () => {
   return (

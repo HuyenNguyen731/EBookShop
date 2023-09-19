@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TextInput, Flex, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, TouchableOpacity } from "react-native";
 
 import styles from "./login.style";
 
@@ -13,8 +13,10 @@ const Login = () => {
       <TouchableOpacity style={styles.button}>
         <Text style={styles.btnText}>Login</Text>
       </TouchableOpacity>
-
-      <Text style={styles.footerText}>Create An Account Sign Up</Text>
+      <View style={styles.footerText}>
+        <Text>Create An Account</Text>
+        <Text style={styles.linkText}>Sign Up</Text>
+      </View>
     </View>
   );
 };
