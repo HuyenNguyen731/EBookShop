@@ -1,19 +1,5 @@
-import { View, Text } from "react-native";
-import {
-  Login,
-  SignUp,
-  CardBook,
-  CardCategory,
-  CardOrder,
-  DetailsBook,
-} from "../components";
+import { Redirect } from "expo-router";
 
-const Home = () => {
-  return (
-    <View>
-      <Login />
-    </View>
-  );
-};
-
-export default Home;
+export default function Index() {
+  return <Redirect href="/home" />;
+}

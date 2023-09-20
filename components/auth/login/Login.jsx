@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
-
+import { Link } from "expo-router";
 import styles from "./login.style";
 
 const Login = () => {
@@ -15,7 +15,9 @@ const Login = () => {
       </TouchableOpacity>
       <View style={styles.footerText}>
         <Text>Create An Account</Text>
-        <Text style={styles.linkText}>Sign Up</Text>
+        <Link href="/sign-up" style={styles.linkText}>
+          Sign Up
+        </Link>
       </View>
     </View>
   );

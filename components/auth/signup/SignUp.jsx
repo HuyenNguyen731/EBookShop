@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 
 import styles from "./signup.style";
+import { Link } from "expo-router";
 import { COLORS } from "../../../constants";
 
 const SignUp = () => {
@@ -12,14 +13,17 @@ const SignUp = () => {
       <TextInput style={styles.input} placeholder="Password" />
       <TextInput style={styles.input} placeholder="ConfirmPassword" />
       <Text style={styles.contextText}>
-        By clicking the Register button, you agree to the public offer
+        By clicking the <Text style={{ color: COLORS.primary }}>Register</Text>{" "}
+        button, you agree to the public offer
       </Text>
       <TouchableOpacity style={styles.button}>
         <Text style={styles.btnText}>Create Account</Text>
       </TouchableOpacity>
       <View style={styles.footerText}>
         <Text>I Already Have an Account</Text>
-        <Text style={styles.linkText}>Login</Text>
+        <Link href="/login" style={styles.linkText}>
+          Login
+        </Link>
       </View>
     </View>
   );

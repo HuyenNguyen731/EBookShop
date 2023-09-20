@@ -2,15 +2,14 @@ import React from "react";
 import { View, Text, Image } from "react-native";
 
 import styles from "./cardcategory.style";
-import { images } from "../../../constants";
 
-const CardCategory = () => {
+const CardCategory = ({ name, url }) => {
   return (
     <View>
       <View style={styles.imgContainer}>
-        <Image style={styles.img} source={images.profile} />
+        <Image style={styles.img} source={url} />
       </View>
-      <Text style={styles.nameCategory}>Best seller</Text>
+      <Text style={styles.nameCategory}>{name}</Text>
     </View>
   );
 };
