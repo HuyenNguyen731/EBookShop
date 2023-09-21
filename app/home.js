@@ -1,12 +1,13 @@
-import { View } from "react-native";
-import { Category, Slider } from "../components";
+import { ScrollView } from "react-native";
+import { Category, Slider, Product } from "../components";
 
 const HomePage = () => {
   return (
-    <View>
+    <ScrollView>
       <Slider />
       <Category />
-    </View>
+      <Product />
+    </ScrollView>
   );
 };
 

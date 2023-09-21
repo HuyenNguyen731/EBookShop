@@ -11,7 +11,9 @@ const Login = () => {
       <TextInput style={styles.input} placeholder="Password" />
       <Text style={styles.contextText}>Forgot Password?</Text>
       <TouchableOpacity style={styles.button}>
-        <Text style={styles.btnText}>Login</Text>
+        <Link href="/home" style={styles.btnText}>
+          Login
+        </Link>
       </TouchableOpacity>
       <View style={styles.footerText}>
         <Text>Create An Account</Text>

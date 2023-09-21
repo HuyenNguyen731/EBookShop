@@ -9,9 +9,17 @@ const styles = StyleSheet.create({
     color: COLORS.black,
     backgroundColor: COLORS.white,
     padding: 12,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.4,
+    shadowRadius: 3,
+    elevation: 5,
   },
   imgContainer: {
-    height: 300,
+    height: 200,
   },
   img: {
     height: "100%",

@@ -1,17 +1,31 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 
 import { COLORS, FONT, SIZES } from "../../../constants";
 
+const WIDTH = Dimensions.get("window").width;
+
 const styles = StyleSheet.create({
-  imgContainer: {
-    height: 300,
-    padding: 20,
+  container: {
+    flex: 1,
+    marginBottom: 40,
   },
-  img: {
-    height: "100%",
-    width: "100%",
-    objectFit: "cover",
-    borderRadius: 12,
+  wrap: {
+    height: 260,
+    width: WIDTH,
+  },
+  wrapDot: {
+    position: "absolute",
+    bottom: -25,
+    flexDirection: "row",
+    alignSelf: "center",
+  },
+  dotActive: {
+    margin: 3,
+    color: "#FFA3B3",
+  },
+  dot: {
+    margin: 3,
+    color: "#DEDBDB",
   },
 });
 
