@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, View } from "react-native";
+import { ScrollView, View, Text } from "react-native";
 
 import styles from "./category.style";
 import { images } from "../../../constants";
@@ -31,9 +31,12 @@ const data = [
 const Category = () => {
   return (
     <View style={styles.container}>
-      {data?.map((item) => (
-        <CardCategory key={item?.id} name={item?.name} url={item?.url} />
-      ))}
+      <Text style={styles.text}>Top categories</Text>
+      <View style={styles.product}>
+        {data?.map((item) => (
+          <CardCategory key={item?.id} name={item?.name} url={item?.url} />
+        ))}
+      </View>
     </View>
   );
 };

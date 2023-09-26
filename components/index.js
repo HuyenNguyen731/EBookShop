@@ -15,6 +15,9 @@ import Slider from "./home/slider/Slider";
 import Category from "./home/category/Category";
 import Product from "./home/product/Product";
 
+//cart
+import Cart from "./cart/Cart";
+
 export {
   Login,
   SignUp,
@@ -25,4 +28,5 @@ export {
   Slider,
   Category,
   Product,
+  Cart,
 };

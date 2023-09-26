@@ -9,9 +9,8 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.white,
   },
   imgContainer: {
-    height: 120,
-    width: 150,
-    marginRight: 12,
+    width: 130,
+    height: 150,
   },
   img: {
     width: "100%",
@@ -19,24 +18,29 @@ const styles = StyleSheet.create({
     objectFit: "cover",
   },
   name: {
-    marginTop: 8,
-    marginBottom: 12,
-    fontWeight: 600,
+    fontWeight: FONT.bold,
+    fontSize: SIZES.lg,
   },
-  price: {},
+  author: {
+    fontSize: SIZES.sm,
+    color: COLORS.grayBorder,
+  },
+  price: {
+    marginTop: 10,
+    fontSize: SIZES.lg,
+    color: COLORS.primary,
+    fontWeight: FONT.bold,
+  },
   wrapperButton: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
     gap: 12,
-    marginTop: 12,
-    marginBottom: 12,
   },
   button: {
-    width: 40,
-    height: 40,
+    width: 38,
+    height: 38,
     borderRadius: 50,
-    backgroundColor: COLORS.white,
     justifyContent: "center",
     alignItems: "center",
     shadowColor: "#000",
@@ -47,6 +51,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.4,
     shadowRadius: 3,
     elevation: 5,
+    backgroundColor: COLORS.white,
+  },
+  count: {
+    fontSize: SIZES.xs,
+    color: COLORS.grayBorder,
   },
 });
 

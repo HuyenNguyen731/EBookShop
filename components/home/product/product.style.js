@@ -1,21 +1,20 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, StatusBar } from "react-native";
 
 import { COLORS, FONT, SIZES } from "../../../constants";
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 35,
+    marginTop: StatusBar.currentHeight || 0,
+    padding: 20,
   },
-  row: {
-    display: "flex",
-    flexDirection: "row",
-    flexWrap: "wrap",
+  textSale: {
+    fontSize: SIZES.lg,
+    marginLeft: 10,
+    marginBottom: 12,
+    marginTop: 20,
   },
-  col: {
-    width: "50%",
-    paddingLeft: 10,
-    paddingRight: 10,
-    marginBottom: 20,
+  imgContainer: {
+    marginTop: 16,
   },
 });
 

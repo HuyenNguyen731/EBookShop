@@ -4,8 +4,11 @@ import filter from "../assets/icons/filter.png";
 import left from "../assets/icons/left.png";
 import share from "../assets/icons/share.png";
 import location from "../assets/icons/location.png";
-import chevronLeft from '../assets/icons/chevron-left.png'
-import chevronRight from '../assets/icons/chevron-right.png'
+import chevronLeft from "../assets/icons/chevron-left.png";
+import chevronRight from "../assets/icons/chevron-right.png";
+import view from "../assets/icons/view.png";
+import compare from "../assets/icons/compare.png";
+import sale from "../assets/icons/sale.webp";
 
 export default {
   menu,
@@ -15,5 +18,8 @@ export default {
   share,
   location,
   chevronLeft,
-  chevronRight
+  chevronRight,
+  view,
+  compare,
+  sale,
 };
