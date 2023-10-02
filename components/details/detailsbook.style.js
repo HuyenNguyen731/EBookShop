@@ -11,10 +11,12 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 266,
     alignItems: "center",
+    backgroundColor: COLORS.lightGray,
   },
   img: {
+    width: "100%",
     height: "100%",
-    objectFit: "cover",
+    resizeMode: "contain",
   },
   nameBook: {
     marginTop: 16,
@@ -32,7 +34,11 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   description: {
+    marginBottom: 8,
+  },
+  btn: {
     marginBottom: 30,
+    color: COLORS.primary,
   },
   wraper: {
     display: "flex",
@@ -94,22 +100,6 @@ const styles = StyleSheet.create({
   textTime: {
     marginTop: 4,
     fontSize: SIZES.xl,
-  },
-  btnFooter: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 6,
-    flex: 1,
-    padding: 16,
-    marginTop: 30,
-    borderRadius: 8,
-    marginBottom: 50,
-    borderWidth: 1,
-    borderColor: COLORS.grayBorder,
-  },
-  btnText: {
-    fontSize: SIZES.md,
   },
 });
 

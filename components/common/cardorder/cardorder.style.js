@@ -7,15 +7,16 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     backgroundColor: COLORS.white,
+    margin: 10,
   },
   imgContainer: {
     width: 130,
-    height: 150,
+    height: 160,
   },
   img: {
     width: "100%",
     height: "100%",
-    objectFit: "cover",
+    resizeMode: "contain",
   },
   name: {
     fontWeight: FONT.bold,

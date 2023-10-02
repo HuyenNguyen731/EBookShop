@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 
 import styles from "./cardorder.style";
-import { images } from "../../../constants";
 
-const CardOrder = () => {
+const CardOrder = ({ url, name, price }) => {
+  const [count, setCount] = useState(1);
+
+  const handleDecrement = () => {
+    if (count > 0) {
+      setCount(count - 1);
+    }
+  };
+
+  const handleIncrease = () => {
+    if (count > 0) {
+      setCount(count + 1);
+    }
+  };
+
   return (
     <View style={styles.item}>
       <View style={styles.imgContainer}>
-        <Image style={styles.img} source={images.b1} />
+        <Image style={styles.img} source={url} />
       </View>
       <View
         style={{
@@ -19,9 +32,9 @@ const CardOrder = () => {
         }}
       >
         <View>
-          <Text style={styles.name}>Rèn luyện tư duy làm giàu</Text>
+          <Text style={styles.name}>{name}</Text>
           <Text style={styles.author}>By Jake Knapp</Text>
-          <Text style={styles.price}>72.000 đ</Text>
+          <Text style={styles.price}>{price}</Text>
         </View>
         <View
           style={{
@@ -33,11 +46,11 @@ const CardOrder = () => {
         >
           <Text style={styles.count}>Số lượng</Text>
           <View style={styles.wrapperButton}>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={handleDecrement}>
               <Text style={styles.btnText}>-</Text>
             </TouchableOpacity>
-            <Text>2</Text>
-            <TouchableOpacity style={styles.button}>
+            <Text>{count}</Text>
+            <TouchableOpacity style={styles.button} onPress={handleIncrease}>
               <Text style={styles.btnText}>+</Text>
             </TouchableOpacity>
           </View>
