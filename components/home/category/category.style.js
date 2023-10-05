@@ -14,9 +14,8 @@ const styles = StyleSheet.create({
     fontSize: SIZES.lg,
   },
   product: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-around",
+    paddingLeft: 20,
+    paddingRight: 10,
   },
 });
 

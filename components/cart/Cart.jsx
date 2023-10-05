@@ -27,9 +27,8 @@ const Cart = () => {
   return (
     <View style={styles.container}>
       {data?.map((item) => (
-        <CardOrder {...item} />
+        <CardOrder {...item} key={item?.id} />
       ))}
-
       <View>
         <View>
           <Text>Tổng tiền:</Text>

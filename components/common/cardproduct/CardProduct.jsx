@@ -4,6 +4,7 @@ import { View, Text, Image } from "react-native";
 import styles from "./cardproduct.style";
 import { Link } from "expo-router";
 import { icons } from "../../../constants";
+import { getImageUrl } from "../../../helpers/image";
 
 const CardProduct = ({ id, name, price, url, sale }) => {
   return (
@@ -16,10 +17,10 @@ const CardProduct = ({ id, name, price, url, sale }) => {
       <View style={styles.item}>
         {sale && <Image style={styles.iconSale} source={icons.sale} />}
         <View style={styles.imgContainer}>
-          <Image style={styles.img} source={url} />
+          <Image style={styles.img} source={getImageUrl(url)} />
         </View>
         <Text style={styles.name}>{name}</Text>
-        <Text style={styles.price}>{price}</Text>
+        <Text style={styles.price}>{price} đ</Text>
       </View>
     </Link>
   );
