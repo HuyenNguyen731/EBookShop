@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity,
   ActivityIndicator,
+  Alert,
 } from "react-native";
 import { Link } from "expo-router";
 
@@ -47,7 +48,10 @@ const DetailsBook = () => {
                 Buy Now
               </Link>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonAdd}>
+            <TouchableOpacity
+              style={styles.buttonAdd}
+              onPress={() => Alert.alert("Success")}
+            >
               <Text style={styles.buttonText}>Add to Cart</Text>
             </TouchableOpacity>
           </View>

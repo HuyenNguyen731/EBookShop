@@ -6,6 +6,8 @@ import SignUp from "./auth/signup/SignUp";
 import CardProduct from "./common/cardproduct/CardProduct";
 import CardCategory from "./common/cardcategory/CardCategory";
 import CardOrder from "./common/cardorder/CardOrder";
+import SuccessPage from "./common/success/Success";
+import CardStatus from "./common/cardstatus/CardStatus";
 
 // details
 import DetailsBook from "./details/DetailsBook";
@@ -18,6 +20,12 @@ import Product from "./home/product/Product";
 //cart
 import Cart from "./cart/Cart";
 
+//payment
+import Payment from "./payment/Payment";
+
+//order
+import Order from "./order/Order";
+
 export {
   Login,
   SignUp,
@@ -29,4 +37,8 @@ export {
   Category,
   Product,
   Cart,
+  Payment,
+  SuccessPage,
+  Order,
+  CardStatus,
 };

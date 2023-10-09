@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     backgroundColor: COLORS.white,
-    margin: 10,
+    marginTop: 20,
   },
   imgContainer: {
     width: 130,

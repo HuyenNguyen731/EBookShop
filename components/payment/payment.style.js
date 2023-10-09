@@ -1,30 +1,31 @@
 import { StyleSheet } from "react-native";
+
 import { COLORS, FONT, SIZES } from "../../constants";
+
 const styles = StyleSheet.create({
   container: {
-    color: COLORS.black,
-    paddingLeft: 20,
-    paddingRight: 20,
-  },
-  order: {
-    height: 650,
-    overflow: "scroll",
-  },
-  payment: {},
-  wrapper: {
-    display: "flex",
-    flexDirection: "row",
+    backgroundColor: COLORS.white,
+    padding: 20,
+    height: "90vh",
     justifyContent: "space-between",
   },
-  text: {
-    fontSize: SIZES.lg,
-    color: COLORS.grayBorder,
+  inputLabel: {
+    marginBottom: 20,
   },
-  total: {
+  input: {
+    height: 55,
+    padding: 10,
+    borderWidth: 1,
+    fontSize: SIZES.md,
+    borderRadius: 10,
+    borderColor: COLORS.grayBorder,
+    backgroundColor: COLORS.grayF3,
+  },
+  label: {
     fontSize: SIZES.lg,
+    marginBottom: 8,
   },
   button: {
-    flex: 1,
     padding: 16,
     marginTop: 20,
     borderRadius: 8,

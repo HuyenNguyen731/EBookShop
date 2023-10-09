@@ -26,16 +26,18 @@ const data = [
 const Cart = () => {
   return (
     <View style={styles.container}>
-      {data?.map((item) => (
-        <CardOrder {...item} key={item?.id} />
-      ))}
-      <View>
-        <View>
-          <Text>Tổng tiền:</Text>
-          <Text>325.000 đ</Text>
+      <View style={styles.order}>
+        {data?.map((item) => (
+          <CardOrder {...item} key={item?.id} />
+        ))}
+      </View>
+      <View style={styles.payment}>
+        <View style={styles.wrapper}>
+          <Text style={styles.text}>Tổng tiền:</Text>
+          <Text style={styles.total}>325.000 đ</Text>
         </View>
         <TouchableOpacity style={styles.button}>
-          <Link href="/home" style={styles.btnText}>
+          <Link href="/check-out" style={styles.btnText}>
             Check out
           </Link>
         </TouchableOpacity>

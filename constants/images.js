@@ -21,6 +21,8 @@ import b11 from "../assets/images/book/b11.jpg";
 import b12 from "../assets/images/book/b12.jpg";
 import ad from "../assets/images/book/ad.png";
 
+import bags from "../assets/images/status/bags.png";
+
 export default {
   banner1,
   banner2,
@@ -42,4 +44,5 @@ export default {
   b11,
   b12,
   ad,
+  bags,
 };

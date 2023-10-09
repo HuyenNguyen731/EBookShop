@@ -8,6 +8,9 @@ const COLORS = {
   lightGray: "#f9f9f9",
   grayBorder: "#A8A8A9",
   grayF3: "#F3F3F3",
+  green: "#2AA952",
+  red: "#db3022",
+  orange: "#ffba49",
 };
 
 const FONT = {

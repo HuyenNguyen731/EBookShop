@@ -4,9 +4,10 @@ import { COLORS, FONT, SIZES } from "../../../constants";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#FFF",
-    padding: 32,
-    height: "100%",
+    flex: 1,
+    maxWidth: 960,
+    marginHorizontal: "auto",
+    justifyContent: "center",
   },
   headText: {
     fontSize: "48px",
