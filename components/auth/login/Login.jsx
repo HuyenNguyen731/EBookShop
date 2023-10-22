@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
-import { Link, useLinkTo } from "expo-router";
+import { Link } from "expo-router";
 import styles from "./login.style";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -24,7 +24,7 @@ const Login = () => {
 
       if (token) {
         await AsyncStorage.setItem("TOKEN", token);
-        linkTo("/home");
+        navigation.navigate("home");
       }
     } catch (error) {
       console.error("Lỗi đăng nhập: ", error);
