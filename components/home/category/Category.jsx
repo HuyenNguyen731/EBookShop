@@ -39,15 +39,13 @@ const Category = () => {
           <View style={styles.product}>
             <FlatList
               data={data}
-              renderItem={({ item }) => (
-                <CardCategory
-                  key={item?.categoryId}
-                  name={item?.name}
-                  url={item?.image}
-                />
+              renderItem={({ item, index }) => (
+                <View key={index}>
+                  <CardCategory name={item?.name} url={item?.image} />
+                </View>
               )}
-              keyExtractor={(item) => item?.id}
               horizontal
+              keyExtractor={(item, index) => index.toString()}
               ItemSeparatorComponent={() => <View style={{ width: 20 }} />}
             />
           </View>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { Link } from "expo-router";
 import styles from "./login.style";
@@ -8,6 +8,17 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (error) {
+      const timer = setTimeout(() => {
+        setError(null);
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [error]);
 
   const handleLogin = async () => {
     try {
@@ -24,9 +35,10 @@ const Login = () => {
 
       if (token) {
         await AsyncStorage.setItem("TOKEN", token);
-        navigation.navigate("home");
+        navigation.navigate("/home");
       }
     } catch (error) {
+      setError("Failed to login !!!");
       console.error("Lỗi đăng nhập: ", error);
     }
   };
@@ -34,6 +46,7 @@ const Login = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.headText}>Welcome Back!</Text>
+      {error && <Text style={styles.errorText}>{error}</Text>}
       <TextInput
         style={styles.input}
         placeholder="Email"

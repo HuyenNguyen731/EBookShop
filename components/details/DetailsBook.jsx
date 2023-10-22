@@ -8,15 +8,16 @@ import {
   ActivityIndicator,
   Alert,
 } from "react-native";
-import { Link } from "expo-router";
-
 import styles from "./detailsbook.style";
 import { getImageUrl } from "../../helpers/image";
 import { useFetchApi } from "../../hooks/useFetchApi";
+import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const DetailsBook = () => {
   const route = useRoute();
   const [expanded, setExpanded] = useState(false);
+  const [token, setToken] = useState(null);
 
   const { isLoading, response, error } = useFetchApi(
     `books/${route.params.id}`
@@ -26,6 +27,44 @@ const DetailsBook = () => {
     setExpanded(!expanded);
   };
   const line = expanded ? 0 : 2;
+
+  const handleBuyNow = async () => {
+    try {
+      if (!token) {
+        Alert.alert("Please log in to make a purchase.");
+        return;
+      }
+      const res = await axios.post(
+        `https://localhost:7135/api/orders/addtocart/${response?.data?.bookId}/1`,
+        null,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (res.status === 200) {
+        navigation.navigate("/cart");
+      }
+    } catch (error) {
+      console.error("Lỗi mua hàng: ", error);
+    }
+  };
+
+  useEffect(() => {
+    AsyncStorage.getItem("TOKEN")
+      .then((TOKEN) => {
+        if (TOKEN) {
+          setToken(TOKEN);
+        } else {
+          console.error("Token does not exist");
+        }
+      })
+      .catch((error) => {
+        console.error("Error when getting token from AsyncStorage: ", error);
+      });
+  }, []);
 
   return (
     <>
@@ -43,10 +82,8 @@ const DetailsBook = () => {
           <Text style={styles.price}>{response?.data?.price} đ</Text>
 
           <View style={styles.wraper}>
-            <TouchableOpacity style={styles.buttonBuy}>
-              <Link href="/cart" style={styles.buttonText}>
-                Buy Now
-              </Link>
+            <TouchableOpacity style={styles.buttonBuy} onPress={handleBuyNow}>
+              <Text style={styles.buttonText}>Buy Now</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.buttonAdd}

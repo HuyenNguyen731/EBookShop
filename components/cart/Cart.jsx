@@ -44,10 +44,12 @@ const Cart = () => {
       <View style={styles.order}>
         {data?.map((item, index) => (
           <CardOrder
+            {...item}
+            key={item?.bookId}
             url={item?.book?.image}
             name={item?.book?.name}
             price={item?.book?.price}
-            key={item?.bookId}
+            quantity={item?.book?.quantity}
           />
         ))}
       </View>

@@ -4,8 +4,8 @@ import { getImageUrl } from "../../../helpers/image";
 
 import styles from "./cardorder.style";
 
-const CardOrder = ({ url, name, price }) => {
-  const [count, setCount] = useState(1);
+const CardOrder = ({ url, name, price, quantity }) => {
+  const [count, setCount] = useState(quantity);
 
   const handleDecrement = () => {
     if (count > 0) {

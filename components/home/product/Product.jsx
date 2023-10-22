@@ -29,10 +29,10 @@ const Product = () => {
         <ActivityIndicator size="large" />
       ) : (
         <FlatList
+          horizontal
           data={response?.data}
           renderItem={renderItem}
-          keyExtractor={(item) => item.id}
-          horizontal
+          keyExtractor={(item, index) => index.toString()}
           ItemSeparatorComponent={() => <View style={{ width: 16 }} />}
         />
       )}
