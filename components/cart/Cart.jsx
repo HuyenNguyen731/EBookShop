@@ -1,34 +1,54 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
-
 import styles from "./cart.style";
 import CardOrder from "../common/cardorder/CardOrder";
-import { images } from "../../constants";
 import { Link } from "expo-router";
-
-const data = [
-  {
-    id: 1,
-    url: images.b3,
-    name: "Người thông minh - giải quyết vấn đề như thế nào?",
-    price: "175.000 đ",
-    number: 1,
-  },
-  {
-    id: 2,
-    url: images.b4,
-    name: "7 chiến lược để sống sung túc hạnh phúc",
-    price: "145.000 đ",
-    number: 1,
-  },
-];
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import axios from "axios";
 
 const Cart = () => {
+  const [data, setData] = useState([]);
+  const [token, setToken] = useState(null);
+
+  useEffect(() => {
+    AsyncStorage.getItem("TOKEN")
+      .then((TOKEN) => {
+        if (TOKEN) {
+          setToken(TOKEN);
+        } else {
+          console.error("Token does not exist");
+        }
+      })
+      .catch((error) => {
+        console.error("Error when getting token from AsyncStorage: ", error);
+      });
+
+    if (token) {
+      axios
+        .get("https://localhost:7135/api/orders/cart", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          setData(response?.data?.data?.orderItems);
+        })
+        .catch((error) => {
+          console.error("Error when we call API: ", error);
+        });
+    }
+  }, [token]);
+
   return (
     <View style={styles.container}>
       <View style={styles.order}>
-        {data?.map((item) => (
-          <CardOrder {...item} key={item?.id} />
+        {data?.map((item, index) => (
+          <CardOrder
+            url={item?.book?.image}
+            name={item?.book?.name}
+            price={item?.book?.price}
+            key={item?.bookId}
+          />
         ))}
       </View>
       <View style={styles.payment}>

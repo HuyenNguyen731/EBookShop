@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
+import { getImageUrl } from "../../../helpers/image";
 
 import styles from "./cardorder.style";
 
@@ -21,7 +22,7 @@ const CardOrder = ({ url, name, price }) => {
   return (
     <View style={styles.item}>
       <View style={styles.imgContainer}>
-        <Image style={styles.img} source={url} />
+        <Image style={styles.img} source={getImageUrl(url)} />
       </View>
       <View
         style={{
