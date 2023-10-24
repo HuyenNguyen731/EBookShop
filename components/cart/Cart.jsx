@@ -31,7 +31,7 @@ const Cart = () => {
           },
         })
         .then((response) => {
-          setData(response?.data?.data?.orderItems);
+          setData(response?.data?.data);
         })
         .catch((error) => {
           console.error("Error when we call API: ", error);
@@ -39,29 +39,37 @@ const Cart = () => {
     }
   }, [token]);
 
+  const handleCheckOut = () => {
+    const orderId = data?.orderId;
+
+    if (orderId) {
+      navigation.navigate(`/check-out?orderId=${orderId}`);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.order}>
-        {data?.map((item, index) => (
+        {data?.orderItems?.map((item, index) => (
           <CardOrder
             {...item}
+            token={token}
             key={item?.bookId}
             url={item?.book?.image}
             name={item?.book?.name}
             price={item?.book?.price}
-            quantity={item?.book?.quantity}
+            quantity={item?.quantity}
+            orderItemId={item?.orderItemId}
           />
         ))}
       </View>
       <View style={styles.payment}>
         <View style={styles.wrapper}>
           <Text style={styles.text}>Tổng tiền:</Text>
-          <Text style={styles.total}>325.000 đ</Text>
+          <Text style={styles.total}>{data?.totalAmount} đ</Text>
         </View>
-        <TouchableOpacity style={styles.button}>
-          <Link href="/check-out" style={styles.btnText}>
-            Check out
-          </Link>
+        <TouchableOpacity style={styles.button} onPress={handleCheckOut}>
+          <Text style={styles.btnText}>Check out</Text>
         </TouchableOpacity>
       </View>
     </View>

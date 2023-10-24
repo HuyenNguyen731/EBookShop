@@ -1,21 +1,30 @@
 import React from "react";
-import { View, Dimensions,  } from "react-native";
+import { View, Dimensions } from "react-native";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 
 import CardStatus from "../common/cardstatus/CardStatus";
 import styles from "./order.style";
 
-const FirstRoute = () => (
+const Pending = () => (
   <View style={styles.scene}>
-    <CardStatus status="delivered"/>
-    <CardStatus status="delivered"/>
+    <CardStatus status="1" />
+    <CardStatus status="1" />
   </View>
 );
-const SecondRoute = () => (
-  <View style={styles.scene}><CardStatus status="processing" /></View>
+const Confirmed = () => (
+  <View style={styles.scene}>
+    <CardStatus status="2" />
+  </View>
 );
-const ThirdRoute = () => (
-  <View style={styles.scene}><CardStatus status="cancelled" /></View>
+const Delivered = () => (
+  <View style={styles.scene}>
+    <CardStatus status="3" />
+  </View>
+);
+const Cancelled = () => (
+  <View style={styles.scene}>
+    <CardStatus status="4" />
+  </View>
 );
 
 const renderTabBar = (props) => (
@@ -30,9 +39,10 @@ export default class TabViewExample extends React.Component {
   state = {
     index: 0,
     routes: [
-      { key: "first", title: "Delivered" },
-      { key: "second", title: "Processing" },
-      { key: "third", title: "Cancelled" },
+      { key: "1", title: "Pending" },
+      { key: "2", title: "Confirmed" },
+      { key: "3", title: "Delivered" },
+      { key: "4", title: "Cancelled" },
     ],
   };
 
@@ -42,9 +52,10 @@ export default class TabViewExample extends React.Component {
         navigationState={this.state}
         renderTabBar={renderTabBar}
         renderScene={SceneMap({
-          first: FirstRoute,
-          second: SecondRoute,
-          third: ThirdRoute,
+          1: Pending,
+          2: Confirmed,
+          3: Delivered,
+          4: Cancelled,
         })}
         onIndexChange={(index) => this.setState({ index })}
         initialLayout={{ width: Dimensions.get("window").width }}

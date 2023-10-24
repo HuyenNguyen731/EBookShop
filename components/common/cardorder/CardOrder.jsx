@@ -1,21 +1,78 @@
 import React, { useState } from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity, Alert } from "react-native";
 import { getImageUrl } from "../../../helpers/image";
 
 import styles from "./cardorder.style";
+import axios from "axios";
 
-const CardOrder = ({ url, name, price, quantity }) => {
+const CardOrder = ({ url, name, price, quantity, token, orderItemId }) => {
   const [count, setCount] = useState(quantity);
 
-  const handleDecrement = () => {
-    if (count > 0) {
-      setCount(count - 1);
+  const handleIncrease = async () => {
+    try {
+      if (!token) {
+        Alert.alert("Please log in to make a purchase.");
+        return;
+      }
+
+      const newCount = count + 1;
+      const res = await axios.put(
+        `https://localhost:7135/api/orders/changecartitem/${orderItemId}/${newCount}`,
+        null,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (res.status === 200) {
+        setCount(newCount);
+        axios
+          .get("https://localhost:7135/api/orders/cart", {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+          .then((response) => {})
+          .catch((error) => {});
+      }
+    } catch (error) {
+      console.error("Lỗi mua hàng: ", error);
     }
   };
 
-  const handleIncrease = () => {
-    if (count > 0) {
-      setCount(count + 1);
+  const handleDecrement = async () => {
+    try {
+      if (!token) {
+        Alert.alert("Please log in to make a purchase.");
+        return;
+      }
+
+      const newCount = count - 1;
+      const res = await axios.put(
+        `https://localhost:7135/api/orders/changecartitem/${orderItemId}/${newCount}`,
+        null,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (res.status === 200) {
+        setCount(newCount);
+        axios
+          .get("https://localhost:7135/api/orders/cart", {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+          .then((response) => {})
+          .catch((error) => {});
+      }
+    } catch (error) {
+      console.error("Lỗi mua hàng: ", error);
     }
   };
 

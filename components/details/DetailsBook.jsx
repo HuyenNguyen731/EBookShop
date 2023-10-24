@@ -52,6 +52,30 @@ const DetailsBook = () => {
     }
   };
 
+  const handleAddToCart = async () => {
+    try {
+      if (!token) {
+        Alert.alert("Please log in to make a purchase.");
+        return;
+      }
+      const res = await axios.post(
+        `https://localhost:7135/api/orders/addtocart/${response?.data?.bookId}/1`,
+        null,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (res.status === 200) {
+        Alert.alert("Add successfully");
+      }
+    } catch (error) {
+      console.error("Lỗi mua hàng: ", error);
+    }
+  };
+
   useEffect(() => {
     AsyncStorage.getItem("TOKEN")
       .then((TOKEN) => {
@@ -87,7 +111,7 @@ const DetailsBook = () => {
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.buttonAdd}
-              onPress={() => Alert.alert("Success")}
+              onPress={handleAddToCart}
             >
               <Text style={styles.buttonText}>Add to Cart</Text>
             </TouchableOpacity>

@@ -1,13 +1,16 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, StatusBar } from "react-native";
 
 import { COLORS, FONT, SIZES } from "../../constants";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: COLORS.white,
     padding: 20,
-    height: "90vh",
-    justifyContent: "space-between",
+    backgroundColor: COLORS.white,
+    marginTop: StatusBar.currentHeight || 0,
+    height: "100%",
+  },
+  formContainer: {
+    height: 450,
   },
   inputLabel: {
     marginBottom: 20,
@@ -46,6 +49,10 @@ const styles = StyleSheet.create({
   btnText: {
     color: COLORS.white,
     fontSize: SIZES.xl,
+  },
+  errorText: {
+    color: COLORS.red,
+    textAlign: "center",
   },
 });
 

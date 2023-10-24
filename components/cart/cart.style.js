@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     paddingRight: 20,
   },
   order: {
-    height: 650,
+    height: 450,
     overflow: "scroll",
   },
   payment: {},
@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
+    paddingTop: 10,
   },
   text: {
     fontSize: SIZES.lg,

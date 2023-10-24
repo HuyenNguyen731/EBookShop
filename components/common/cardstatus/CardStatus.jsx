@@ -4,16 +4,14 @@ import { View, Text, TouchableOpacity } from "react-native";
 import { Link } from "expo-router";
 import styles from "./cardstatus.style";
 
-const CardStatus = ({status}) => {
+const CardStatus = ({ status }) => {
   return (
     <View style={styles.card}>
       <View style={[styles.flex, { justifyContent: "space-between" }]}>
         <Text>Order №1947034</Text>
-        {
-          status === "processing" ? null : (
-            <Text style={styles.textGray}>05-12-2019</Text>
-          )
-        }
+        {status === "1" ? null : (
+          <Text style={styles.textGray}>05-12-2019</Text>
+        )}
       </View>
       <View style={styles.flex}>
         <Text style={styles.textGray}>Quantiy: </Text>
@@ -38,24 +36,10 @@ const CardStatus = ({status}) => {
             Details
           </Link>
         </TouchableOpacity>
-        {
-        status === "delivered" && 
-          <Text style={styles.textGreen}>
-            Delivered
-          </Text>
-        }
-        {
-           status === "cancelled" && 
-           <Text style={styles.textRed}>
-             Cancelled
-           </Text>
-        }
-        {
-           status === "processing" && 
-           <Text style={styles.textOrange}>
-             Processing
-           </Text>
-        }
+        {status === "1" && <Text style={styles.textOrange}>Pending</Text>}
+        {status === "2" && <Text style={styles.textOrange}>Confirmed</Text>}
+        {status === "3" && <Text style={styles.textGreen}>Delivered</Text>}
+        {status === "4" && <Text style={styles.textRed}>Cancelled</Text>}
       </View>
     </View>
   );

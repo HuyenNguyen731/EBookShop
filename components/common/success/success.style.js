@@ -1,13 +1,13 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, StatusBar } from "react-native";
 
 import { COLORS, FONT, SIZES } from "../../../constants";
 
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    height: "100%",
     backgroundColor: COLORS.white,
-    justifyContent: "space-between",
+    marginTop: StatusBar.currentHeight || 0,
+    height: "100%",
   },
   imgContainer: {
     height: 208,
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   },
   button: {
     padding: 16,
-    marginTop: 20,
+    marginTop: 100,
     borderRadius: 8,
     marginBottom: 20,
     shadowColor: "#000",
