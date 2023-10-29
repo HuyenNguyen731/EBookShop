@@ -10,8 +10,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   headText: {
-    fontSize: "48px",
-    fontWeight: FONT.bold,
+    fontSize: 48,
     color: COLORS.black,
     marginBottom: 6,
   },
