@@ -2,8 +2,8 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import { Stack } from "expo-router";
 
-import { SignUp } from "../components";
-import { COLORS } from "../constants";
+import { SignUp } from "../../components";
+import { COLORS } from "../../constants";
 
 const SingUpPage = () => {
   return (

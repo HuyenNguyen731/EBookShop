@@ -16,6 +16,15 @@ const styles = StyleSheet.create({
   imgContainer: {
     marginTop: 16,
   },
+  row: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+  },
+  column: {
+    width: "50%", // Hiển thị 2 cột trên 1 hàng
+    padding: 10,
+  },
 });
 
 export default styles;

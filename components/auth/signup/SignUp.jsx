@@ -10,8 +10,16 @@ const SignUp = () => {
     <View style={styles.container}>
       <Text style={styles.headText}>Create an account</Text>
       <TextInput style={styles.input} placeholder="Email" />
-      <TextInput style={styles.input} placeholder="Password" />
-      <TextInput style={styles.input} placeholder="ConfirmPassword" />
+      <TextInput
+        style={styles.input}
+        placeholder="Password"
+        secureTextEntry={true}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="ConfirmPassword"
+        secureTextEntry={true}
+      />
       <Text style={styles.contextText}>
         By clicking the <Text style={{ color: COLORS.primary }}>Register</Text>{" "}
         button, you agree to the public offer
@@ -21,7 +29,7 @@ const SignUp = () => {
       </TouchableOpacity>
       <View style={styles.footerText}>
         <Text>I Already Have an Account</Text>
-        <Link href="/login" style={styles.linkText}>
+        <Link href="/signin" style={styles.linkText}>
           Login
         </Link>
       </View>

@@ -1,5 +1,5 @@
 import { ScrollView } from "react-native";
-import { Order } from "../components";
+import { Order } from "../../components";
 
 const OrderPage = () => {
   return (

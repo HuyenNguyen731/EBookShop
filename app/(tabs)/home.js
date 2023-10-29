@@ -1,6 +1,6 @@
 import { ScrollView } from "react-native";
 import { Stack } from "expo-router";
-import { Category, Slider, Product } from "../components";
+import { Category, Slider, Product } from "../../components";
 
 const HomePage = () => {
   return (

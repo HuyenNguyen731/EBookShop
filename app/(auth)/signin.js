@@ -2,13 +2,13 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import { Stack } from "expo-router";
 
-import { Login } from "../components";
-import { COLORS } from "../constants";
+import { Login } from "../../components";
+import { COLORS } from "../../constants";
 
 const LoginPage = () => {
   return (
     <View style={styles.container}>
-      <Stack.Screen options={{ title: "Login" }} />
+      <Stack.Screen options={{ title: "Sign In" }} />
       <Login />
     </View>
   );

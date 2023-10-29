@@ -55,6 +55,7 @@ const Login = () => {
       <TextInput
         style={styles.input}
         placeholder="Password"
+        secureTextEntry={true}
         onChangeText={(text) => setPassword(text)}
       />
       <Text style={styles.contextText}>Forgot Password?</Text>
@@ -63,7 +64,7 @@ const Login = () => {
       </TouchableOpacity>
       <View style={styles.footerText}>
         <Text>Create An Account</Text>
-        <Link href="/sign-up" style={styles.linkText}>
+        <Link href="/signup" style={styles.linkText}>
           Sign Up
         </Link>
       </View>
