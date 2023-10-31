@@ -1,13 +1,15 @@
 import { StyleSheet } from "react-native";
-import { COLORS, FONT, SIZES } from "../../constants";
+import { COLORS, SIZES } from "../../constants";
 const styles = StyleSheet.create({
   container: {
     color: COLORS.black,
     paddingLeft: 20,
     paddingRight: 20,
+    flex: 1,
+    maxWidth: 960,
   },
   order: {
-    height: 450,
+    flexGrow: 1,
     overflow: "scroll",
   },
   payment: {},

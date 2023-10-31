@@ -1,11 +1,11 @@
 import { StyleSheet, StatusBar } from "react-native";
 
-import { COLORS, FONT, SIZES } from "../../../constants";
+import { SIZES } from "../../../constants";
 
 const styles = StyleSheet.create({
   container: {
     marginTop: StatusBar.currentHeight || 0,
-    padding: 20,
+    padding: 10,
   },
   textSale: {
     fontSize: SIZES.lg,
@@ -20,10 +20,12 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
+    margin: "-10px",
   },
   column: {
-    width: "50%", // Hiển thị 2 cột trên 1 hàng
-    padding: 10,
+    width: "50%",
+    maxWidth: "50%",
+    padding: "10px",
   },
 });
 

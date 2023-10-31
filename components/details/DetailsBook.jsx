@@ -11,8 +11,9 @@ import {
 import styles from "./detailsbook.style";
 import { getImageUrl } from "../../helpers/image";
 import { useFetchApi } from "../../hooks/useFetchApi";
-import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import axios from "axios";
+import { API_URL } from "@env";
 
 const DetailsBook = () => {
   const route = useRoute();
@@ -35,7 +36,7 @@ const DetailsBook = () => {
         return;
       }
       const res = await axios.post(
-        `https://localhost:7135/api/orders/addtocart/${response?.data?.bookId}/1`,
+        `${API_URL}/api/orders/addtocart/${response?.data?.bookId}/1`,
         null,
         {
           headers: {
@@ -59,7 +60,7 @@ const DetailsBook = () => {
         return;
       }
       const res = await axios.post(
-        `https://localhost:7135/api/orders/addtocart/${response?.data?.bookId}/1`,
+        `${API_URL}/api/orders/addtocart/${response?.data?.bookId}/1`,
         null,
         {
           headers: {
@@ -99,7 +100,7 @@ const DetailsBook = () => {
           <View style={styles.imgContainer}>
             <Image
               style={styles.img}
-              source={getImageUrl(response?.data?.image)}
+              source={{uri: getImageUrl(response?.data?.image)}}
             />
           </View>
           <Text style={styles.nameBook}>{response?.data?.name}</Text>

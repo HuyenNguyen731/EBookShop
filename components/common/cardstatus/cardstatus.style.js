@@ -24,7 +24,17 @@ const styles = StyleSheet.create({
     padding: 8,
     minWidth: 100,
   },
+  buttonCancel: {
+    backgroundColor: COLORS.primary,
+    padding: 5,
+    borderRadius: 20,
+    minWidth: 60,
+  },
   btnText: {
+    textAlign: "center",
+  },
+  btnTextCancel: {
+    color: COLORS.white,
     textAlign: "center",
   },
   flex: {
@@ -40,9 +50,9 @@ const styles = StyleSheet.create({
   textRed: {
     color: COLORS.red,
   },
-  textOrange : {
-    color: COLORS.orange
-  }
+  textOrange: {
+    color: COLORS.orange,
+  },
 });
 
 export default styles;

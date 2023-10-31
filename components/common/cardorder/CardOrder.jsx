@@ -4,8 +4,17 @@ import { getImageUrl } from "../../../helpers/image";
 
 import styles from "./cardorder.style";
 import axios from "axios";
+import { API_URL } from "@env";
 
-const CardOrder = ({ url, name, price, quantity, token, orderItemId }) => {
+const CardOrder = ({
+  url,
+  name,
+  price,
+  quantity,
+  token,
+  orderItemId,
+  fetchData,
+}) => {
   const [count, setCount] = useState(quantity);
 
   const handleIncrease = async () => {
@@ -17,7 +26,7 @@ const CardOrder = ({ url, name, price, quantity, token, orderItemId }) => {
 
       const newCount = count + 1;
       const res = await axios.put(
-        `https://localhost:7135/api/orders/changecartitem/${orderItemId}/${newCount}`,
+        `${API_URL}/api/orders/changecartitem/${orderItemId}/${newCount}`,
         null,
         {
           headers: {
@@ -28,14 +37,7 @@ const CardOrder = ({ url, name, price, quantity, token, orderItemId }) => {
 
       if (res.status === 200) {
         setCount(newCount);
-        axios
-          .get("https://localhost:7135/api/orders/cart", {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          })
-          .then((response) => {})
-          .catch((error) => {});
+        fetchData();
       }
     } catch (error) {
       console.error("Lỗi mua hàng: ", error);
@@ -50,26 +52,34 @@ const CardOrder = ({ url, name, price, quantity, token, orderItemId }) => {
       }
 
       const newCount = count - 1;
-      const res = await axios.put(
-        `https://localhost:7135/api/orders/changecartitem/${orderItemId}/${newCount}`,
-        null,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      if (res.status === 200) {
-        setCount(newCount);
-        axios
-          .get("https://localhost:7135/api/orders/cart", {
+      if (newCount <= 0) {
+        const deleteRes = await axios.delete(
+          `${API_URL}/api/orders/removeitemtocart/${orderItemId}`,
+          {
             headers: {
               Authorization: `Bearer ${token}`,
             },
-          })
-          .then((response) => {})
-          .catch((error) => {});
+          }
+        );
+
+        if (deleteRes.status === 200) {
+          fetchData();
+        }
+      } else {
+        const res = await axios.put(
+          `${API_URL}/api/orders/changecartitem/${orderItemId}/${newCount}`,
+          null,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        if (res.status === 200) {
+          setCount(newCount);
+          fetchData();
+        }
       }
     } catch (error) {
       console.error("Lỗi mua hàng: ", error);
@@ -79,7 +89,7 @@ const CardOrder = ({ url, name, price, quantity, token, orderItemId }) => {
   return (
     <View style={styles.item}>
       <View style={styles.imgContainer}>
-        <Image style={styles.img} source={getImageUrl(url)} />
+        <Image style={styles.img} source={{ uri: getImageUrl(url) }} />
       </View>
       <View
         style={{

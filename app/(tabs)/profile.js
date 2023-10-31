@@ -1,8 +1,7 @@
-import { ScrollView } from "react-native";
-import { Order } from "../../components";
+import { Profile } from "../../components";
 
 const OrderPage = () => {
-  return <ScrollView>Proflie</ScrollView>;
+  return <Profile />;
 };
 
 export default OrderPage;

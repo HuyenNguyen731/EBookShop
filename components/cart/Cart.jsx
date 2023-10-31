@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import styles from "./cart.style";
 import CardOrder from "../common/cardorder/CardOrder";
-import { Link } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
+import { API_URL } from "@env";
 
 const Cart = () => {
   const [data, setData] = useState([]);
@@ -22,20 +22,32 @@ const Cart = () => {
       .catch((error) => {
         console.error("Error when getting token from AsyncStorage: ", error);
       });
+  }, []);
 
+  const fetchData = async () => {
+    try {
+      if (!token) {
+        Alert.alert("Please log in to make a purchase.");
+        return;
+      }
+
+      const response = await axios.get(`${API_URL}/api/orders/cart`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.status === 200) {
+        setData(response.data.data);
+      }
+    } catch (error) {
+      console.error("Lỗi khi gọi API: ", error);
+    }
+  };
+
+  useEffect(() => {
     if (token) {
-      axios
-        .get("https://localhost:7135/api/orders/cart", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then((response) => {
-          setData(response?.data?.data);
-        })
-        .catch((error) => {
-          console.error("Error when we call API: ", error);
-        });
+      fetchData();
     }
   }, [token]);
 
@@ -60,6 +72,7 @@ const Cart = () => {
             price={item?.book?.price}
             quantity={item?.quantity}
             orderItemId={item?.orderItemId}
+            fetchData={fetchData}
           />
         ))}
       </View>

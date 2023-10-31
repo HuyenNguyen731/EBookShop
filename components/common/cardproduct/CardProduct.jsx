@@ -16,7 +16,7 @@ const CardProduct = ({ id, name, price, url, author }) => {
     >
       <View style={styles.item}>
         <View style={styles.imgContainer}>
-          <Image style={styles.img} source={getImageUrl(url)} />
+          <Image style={styles.img} source={{ uri: getImageUrl(url) }} />
         </View>
         <Text style={styles.name} numberOfLines={2}>
           {name}

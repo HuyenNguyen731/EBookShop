@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import { COLORS, FONT, SIZES } from "../../../constants";
+import { SIZES, COLORS } from "../../../constants";
 
 const styles = StyleSheet.create({
   container: {
@@ -9,13 +9,22 @@ const styles = StyleSheet.create({
     paddingRight: 10,
   },
   text: {
-    paddingLeft: 20,
     marginBottom: 18,
     fontSize: SIZES.lg,
   },
   product: {
-    paddingLeft: 20,
     paddingRight: 10,
+  },
+  input: {
+    height: 40,
+    padding: 10,
+    borderWidth: 1,
+    marginTop: 10,
+    marginBottom: 30,
+    fontSize: SIZES.sm,
+    borderRadius: 10,
+    borderColor: COLORS.grayBorder,
+    backgroundColor: COLORS.grayF3,
   },
 });
 

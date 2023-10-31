@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   name: {
-    fontWeight: FONT.bold,
     fontSize: SIZES.lg,
   },
   author: {
@@ -30,7 +29,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     fontSize: SIZES.lg,
     color: COLORS.primary,
-    fontWeight: FONT.bold,
   },
   wrapperButton: {
     display: "flex",

@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, ActivityIndicator, FlatList } from "react-native";
+import {
+  View,
+  Text,
+  ActivityIndicator,
+  FlatList,
+  TextInput,
+} from "react-native";
 
 import styles from "./category.style";
 import { images } from "../../../constants";
 import CardCategory from "../../common/cardcategory/CardCategory";
-import { useFetchApi } from "../../../hooks/useFetchApi";
+import { API_URL } from "@env";
+import axios from "axios";
 
 const categoryImages = [
   images.cate1,
@@ -15,26 +22,43 @@ const categoryImages = [
 ];
 
 const Category = () => {
-  const { isLoading, response } = useFetchApi("Categories");
+  const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (response) {
-      const data = response.map((item, index) => ({
-        ...item,
-        image: categoryImages[index],
-      }));
+    axios
+      .get(`${API_URL}/api/Categories`)
+      .then((response) => {
+        const responseData = response.data;
+        const modifiedData = responseData.map((item, index) => ({
+          ...item,
+          image: categoryImages[index],
+        }));
 
-      setData(data);
-    }
-  }, [response]);
+        setData(modifiedData);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err);
+        setIsLoading(false);
+      });
+  }, []);
 
   return (
     <>
       {isLoading ? (
         <ActivityIndicator size="large" />
+      ) : error ? (
+        <View style={styles.container}>
+          <Text style={styles.errorText}>Error loading data.</Text>
+        </View>
       ) : (
         <View style={styles.container}>
+          <Text style={[{ fontSize: 18, fontStyle: "italic" }]}>
+            Hi! What are you reading today?
+          </Text>
+          <TextInput style={styles.input} placeholder="Search..." />
           <Text style={styles.text}>Top categories</Text>
           <View style={styles.product}>
             <FlatList

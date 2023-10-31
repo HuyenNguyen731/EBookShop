@@ -5,6 +5,7 @@ import { View, Text, TouchableOpacity, TextInput } from "react-native";
 import styles from "./payment.style";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { API_URL } from "@env";
 
 const Payment = () => {
   const route = useRoute();
@@ -28,7 +29,7 @@ const Payment = () => {
 
     try {
       const res = await axios.put(
-        `https://localhost:7135/api/orders/checkout/${route.params.orderId}`,
+        `${API_URL}/api/orders/checkout/${route.params.orderId}`,
         null,
         {
           headers: {

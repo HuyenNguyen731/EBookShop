@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     maxWidth: 960,
-    marginHorizontal: "auto",
     justifyContent: "center",
   },
   headText: {
@@ -56,6 +55,14 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: SIZES.md,
     color: COLORS.red,
+  },
+  img: {
+    width: "100%",
+    height: "100%",
+    resizeMode: "contain",
+  },
+  textSuccess: {
+    fontSize: SIZES.xl,
   },
 });
 

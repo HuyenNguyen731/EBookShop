@@ -22,6 +22,8 @@ import b12 from "../assets/images/book/b12.jpg";
 import ad from "../assets/images/book/ad.png";
 
 import bags from "../assets/images/status/bags.png";
+import avatar from "../assets/images/status/avatar.png";
+import check from "../assets/images/status/check.png";
 
 export default {
   banner1,
@@ -45,4 +47,6 @@ export default {
   b12,
   ad,
   bags,
+  avatar,
+  check,
 };

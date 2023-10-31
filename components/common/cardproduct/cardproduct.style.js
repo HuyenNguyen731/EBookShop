@@ -9,10 +9,10 @@ const styles = StyleSheet.create({
   item: {
     fontSize: "16px",
     color: COLORS.black,
-    fontWeight: FONT.bold,
     position: "relative",
     backgroundColor: COLORS.white,
     height: "100%",
+    width: "100%",
     paddingTop: 12,
     paddingBottom: 12,
     borderRadius: 6,

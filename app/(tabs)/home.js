@@ -2,7 +2,7 @@ import { ScrollView } from "react-native";
 import { Stack } from "expo-router";
 import { Category, Slider, Product } from "../../components";
 
-const HomePage = () => {
+const Home = () => {
   return (
     <ScrollView>
       <Stack.Screen options={{ title: "Home", headerTitleStyle: {} }} />
@@ -13,4 +13,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Home;

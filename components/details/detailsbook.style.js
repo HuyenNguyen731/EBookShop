@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
     marginTop: 20,
-    borderRadius: 8,
+    // borderRadius: 8,
     marginBottom: 20,
     color: COLORS.white,
     backgroundColor: "#3179DF",
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
     marginTop: 20,
-    borderRadius: 8,
+    // borderRadius: 8,
     marginBottom: 20,
     shadowColor: "#000",
     shadowOffset: {

@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     objectFit: "cover",
-    borderRadius: "50%",
+    // borderRadius: "50%",
   },
   title: {
     marginTop: 12,
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   button: {
     padding: 16,
     marginTop: 100,
-    borderRadius: 8,
+    // borderRadius: 8,
     marginBottom: 20,
     shadowColor: "#000",
     shadowOffset: {

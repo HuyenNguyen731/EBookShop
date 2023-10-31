@@ -26,6 +26,11 @@ import Payment from "./payment/Payment";
 //order
 import Order from "./order/Order";
 
+// details
+import OrderDetails from "./orderdetails/OrderDetails";
+
+import Profile from "./dashboard/Profile";
+
 export {
   Login,
   SignUp,
@@ -41,4 +46,6 @@ export {
   SuccessPage,
   Order,
   CardStatus,
+  OrderDetails,
+  Profile,
 };

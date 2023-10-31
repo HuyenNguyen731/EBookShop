@@ -6,17 +6,15 @@ import CardStatus from "../common/cardstatus/CardStatus";
 import styles from "./order.style";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { API_URL } from "@env";
 
 const fetchDataForStatus = async (status, token) => {
   try {
-    const response = await axios.get(
-      `https://localhost:7135/api/orders/status/${status}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const response = await axios.get(`${API_URL}/api/orders/status/${status}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return response?.data?.data;
   } catch (error) {
     console.error(`Error when calling API for status ${status}: `, error);
@@ -26,6 +24,7 @@ const fetchDataForStatus = async (status, token) => {
 
 const TabContent = ({ status }) => {
   const [data, setData] = useState([]);
+  const [token, setToken] = useState(null);
 
   useEffect(() => {
     AsyncStorage.getItem("TOKEN")
@@ -34,6 +33,7 @@ const TabContent = ({ status }) => {
           fetchDataForStatus(status, TOKEN).then((statusData) => {
             setData(statusData);
           });
+          setToken(TOKEN);
         } else {
           console.error("Token does not exist");
         }
@@ -43,10 +43,26 @@ const TabContent = ({ status }) => {
       });
   }, [status]);
 
+  const onCancelOrder = () => {
+    try {
+      fetchDataForStatus(status, token).then((statusData) => {
+        setData(statusData);
+      });
+    } catch (error) {
+      console.error(`Error when calling API for status ${status}: `, error);
+      return [];
+    }
+  };
+
   return (
     <View style={styles.scene}>
       {data?.map((item, index) => (
-        <CardStatus key={index} status={status} />
+        <CardStatus
+          key={index}
+          status={status}
+          item={item}
+          onCancelOrder={onCancelOrder}
+        />
       ))}
     </View>
   );

@@ -1,16 +1,17 @@
 import { StyleSheet, StatusBar } from "react-native";
 
-import { COLORS, FONT, SIZES } from "../../constants";
+import { COLORS, SIZES } from "../../constants";
 
 const styles = StyleSheet.create({
   container: {
     padding: 20,
     backgroundColor: COLORS.white,
     marginTop: StatusBar.currentHeight || 0,
-    height: "100%",
+    flex: 1,
+    maxWidth: 960,
   },
   formContainer: {
-    height: 450,
+    flexGrow: 1,
   },
   inputLabel: {
     marginBottom: 20,

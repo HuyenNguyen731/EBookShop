@@ -2,11 +2,7 @@ import { ScrollView } from "react-native";
 import { Cart } from "../../components";
 
 const CartPage = () => {
-  return (
-    <ScrollView>
-      <Cart />
-    </ScrollView>
-  );
+  return <Cart />;
 };
 
 export default CartPage;

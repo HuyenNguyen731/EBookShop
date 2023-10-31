@@ -1,17 +1,15 @@
 import { StyleSheet } from "react-native";
 
-import { COLORS, FONT, SIZES } from "../../../constants";
+import { COLORS, SIZES } from "../../../constants";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     maxWidth: 960,
-    marginHorizontal: "auto",
     justifyContent: "center",
   },
   headText: {
     fontSize: "48px",
-    fontWeight: FONT.bold,
     color: COLORS.black,
     marginBottom: 6,
   },
@@ -50,7 +48,6 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   linkText: {
-    fontWeight: 500,
     color: COLORS.primary,
     textDecorationLine: "underline",
   },
